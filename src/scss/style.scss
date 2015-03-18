@@ -1,0 +1,183 @@
+@import "compass";
+@import "normalize";
+@import "bodoni";
+@import "nunito";
+
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300);
+
+$turq:#07C4AE;
+$turq-read:darken($turq,10%);
+$aliz:#e74c3c;
+$blue:#3498db;
+$bp-1:930px;
+$bp-2:620px;
+$dur:0.5s;
+
+*{
+  box-sizing:border-box;
+}
+h1, h2, h3{
+  font-family: 'bodonixtregular';
+  font-weight: normal;
+}
+body{
+  background:url('../img/wood_pattern.png');
+  //background:#eaeaea;
+  padding:100px 0;
+  color:#2c3e50;
+  font-family: 'Nunito';
+  font-weight: 300;
+  margin:0 15px;
+  @media(max-width:$bp-1){
+    padding-top:15px;
+  }
+  @include transition (all $dur);
+}
+
+.paper{
+  background:#fff;
+  max-width: 930px;
+  min-height: 1200px;
+  padding:20px;
+  margin:0 auto;
+  @include box-shadow(0 10px 20px rgba(0,0,0,0.3), 0 10px 0 -6px #fff);
+  border-left:50px solid $turq;
+  @media(max-width:$bp-1){
+    border-left-color:$blue;
+  }
+  @media(max-width:$bp-2){
+    border-left-width:20px;
+    border-left-color:$aliz;
+  }
+  @include transition (all $dur);
+}
+
+.letterhead{
+  padding:20px 0;
+  position: relative;
+  padding-left:200px;
+  .logo{
+    position: absolute;
+    left:40px;
+    border:5px solid $turq;
+    @include border-radius(50%);
+    @include transition (all $dur);
+  }
+  .detail{
+    padding-left:0;
+    list-style:none;
+    li{
+      display:inline;
+    }
+    li + li{
+      &:before{
+        content:" \2022 \0020";
+        color:$turq;
+      }
+    }
+  }
+  >h1{
+    font-size:4.5em;
+    margin:0;
+  }
+  @media(max-width:$bp-1){
+    .logo{
+      position: relative;
+      left:initial;
+      display:block;
+      margin:0 auto;
+      border-color:$blue;
+    }
+    padding-left:0;
+    text-align: center;
+    h1{
+      line-height: 1;
+    }
+    .detail{
+      li{
+        display:block;
+      }
+      li + li{
+        &:before{
+          content:"";
+          color:$turq;
+        }
+      }
+    }
+  }
+  @media(max-width:$bp-2){
+    .logo{
+      border-color:$aliz;
+    }
+    h1{
+      font-size: 3em;
+    }
+  }
+}
+
+.lettercontent{
+  padding:0 50px;
+  padding-bottom:50px;
+  p{
+    padding-left:30px;
+  }
+  hr{
+    margin:0;
+    border:1px solid $turq;
+    border-top:none;
+    @include transition (all $dur);
+  }
+  h2{
+    margin-bottom:5px;
+    color:$turq-read;
+    font-size: 2em;
+    @include transition (all $dur);
+  }
+  h3{
+    margin-top: 5px;
+  }
+  @media(max-width:$bp-1){
+    padding: 0 15px;
+    padding-bottom:30px;
+    h2{
+      color:$blue;
+    }
+    hr{
+      border-color:$blue;
+    }
+  }
+  @media(max-width:$bp-2){
+    h2{
+      color:$aliz;
+    }
+    hr{
+      border-color:$aliz;
+    }
+  }
+}
+
+.lead{
+  font-weight: bold;
+  margin-bottom: 0;
+  color:$blue;
+  @include transition (all $dur);
+  @media(max-width:$bp-1){
+    color:$turq-read;
+  }
+}
+
+a{
+  text-decoration: none;
+  color:$blue;
+  &:focus, &:hover{
+    text-decoration:underline;
+  }
+}
+
+h3 + .lead{
+  margin-top: -10px;
+}
+
+.lead + p{
+  margin-top:0;
+}
