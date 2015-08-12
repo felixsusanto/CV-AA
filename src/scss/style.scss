@@ -11,9 +11,10 @@ $aliz:#e74c3c;
 $blue:#3498db;
 $bp-1:930px;
 $bp-2:620px;
+$bp-3:480px;
 $dur:0.5s;
 
-*{
+*{ 
   box-sizing:border-box;
 }
 h1, h2, h3{
@@ -22,7 +23,6 @@ h1, h2, h3{
 }
 body{
   background:url('../img/wood_pattern.png');
-  //background:#eaeaea;
   padding:100px 0;
   color:#2c3e50;
   font-family: 'Nunito';
@@ -152,6 +152,13 @@ body{
     }
     hr{
       border-color:$aliz;
+    }
+  }
+  @media(max-width:$bp-3){
+    padding-left:0;
+    padding-right:0;
+    p{
+      padding-left:15px; 
     }
   }
 }
